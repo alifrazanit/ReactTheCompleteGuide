@@ -1,4 +1,6 @@
+import React from "react";
 import { Expense } from "./components/expenses/expense/Expense";
+import { NewExpense } from "./components/expenses/newExpense/NewExpense";
 function App() {
   const expenses = [
     {
@@ -22,7 +24,10 @@ function App() {
     },
   ];
   return (
-    <Expense data={expenses}/>
+    <React.Fragment>
+      <NewExpense />
+      <Expense data={expenses} />
+    </React.Fragment>
   );
 }
 
