@@ -3,12 +3,12 @@ import './Expense.css';
 import React from "react";
 export const Expense = props => {
     return (
-        <React.Fragment>
+        <div className='expenses'>
             <ExpenseItem
                 date={props.expenses[0].date}
                 title={props.expenses[0].title}
                 amount={props.expenses[0].amount}
             />
-        </React.Fragment>
+        </div>
     )
 }
