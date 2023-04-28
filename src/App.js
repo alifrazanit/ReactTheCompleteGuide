@@ -1,5 +1,6 @@
 import React from "react";
 import { Expense } from './components/Expense/Expense';
+import { NewExpense } from "./components/NewExpense/NewExpense";
 
 function App() {
   const expenses = [
@@ -25,6 +26,7 @@ function App() {
   ];
   return (
     <React.Fragment>
+      <NewExpense />
       <Expense expenses={expenses}/>
     </React.Fragment>
   );
