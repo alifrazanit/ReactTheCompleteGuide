@@ -3,8 +3,7 @@ import { Expense } from './components/Expense/Expense';
 import { NewExpense } from "./components/Expense/NewExpense/NewExpense";
 
 function App() {
-  // const [expenses, setExpense] = useState([]);
-  const expenses = [
+  const INIT_DATA = [
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -25,13 +24,16 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
-  const onSaveExpanse = e => {
-    console.log(e)
+  const [expenses, setExpense] = useState(INIT_DATA);
+  const onSaveExpanse = expense => {
+    setExpense((prevExpense) => {
+      return [expense, ...prevExpense]
+    })
   }
   return (
     <React.Fragment>
-      <NewExpense onSaveExpanse={onSaveExpanse}/>
-      <Expense expenses={expenses}/>
+      <NewExpense onSaveExpanse={onSaveExpanse} />
+      <Expense items={expenses} />
     </React.Fragment>
   );
 }
