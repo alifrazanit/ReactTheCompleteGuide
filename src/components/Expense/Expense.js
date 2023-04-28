@@ -13,11 +13,14 @@ export const Expense = props => {
     return (
         <div className='expenses'>
             <ExpenseFilter onChangeFilter={onChangeFilterHandler} selected={filteredYear} />
-            <ExpenseItem
-                date={props.expenses[0].date}
-                title={props.expenses[0].title}
-                amount={props.expenses[0].amount}
-            />
+            {props.expenses.map((expense) => (
+                <ExpenseItem
+                    key={expense.id}
+                    date={expense.date}
+                    title={expense.title}
+                    amount={expense.amount}
+                />
+            ))}
         </div>
     )
 }
