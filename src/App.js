@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Expense } from './components/Expense/Expense';
-import { NewExpense } from "./components/NewExpense/NewExpense";
+import { NewExpense } from "./components/Expense/NewExpense/NewExpense";
 
 function App() {
+  // const [expenses, setExpense] = useState([]);
   const expenses = [
     {
       id: 'e1',
@@ -24,9 +25,12 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+  const onSaveExpanse = e => {
+    console.log(e)
+  }
   return (
     <React.Fragment>
-      <NewExpense />
+      <NewExpense onSaveExpanse={onSaveExpanse}/>
       <Expense expenses={expenses}/>
     </React.Fragment>
   );
